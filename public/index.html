@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraveBites - Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <h1 class="logo">🍔 CraveBites</h1>
+            <button id="cart-btn" class="cart-btn">
+                🛒 Cart <span id="cart-count" class="badge">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero">
+            <h2>Delicious Food, Delivered Fast</h2>
+            <p>Order your favorite meals with just a few clicks.</p>
+        </div>
+        
+        <div id="menu-grid" class="menu-grid">
+            <!-- Menu items will be injected here via JS -->
+            <p>Loading menu...</p>
+        </div>
+    </main>
+
+    <!-- Cart Modal Overlay -->
+    <div id="cart-overlay" class="cart-overlay">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button id="close-cart-btn" class="close-btn">&times;</button>
+            </div>
+            
+            <div id="cart-items" class="cart-items">
+                <p class="empty-cart">Your cart is empty.</p>
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="checkout-btn" disabled>Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
