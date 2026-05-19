@@ -66,10 +66,10 @@ app.post('/api/orders', (req, res) => {
     let total = 0;
     const orderResult = db.prepare('INSERT INTO orders (customer_name, total_price) VALUES (?, 0)').run(orderData.customer_name);
     const orderId = orderResult.lastInsertRowid;
-    
+
     const insertItem = db.prepare('INSERT INTO order_items (order_id, menu_item_id, quantity) VALUES (?, ?, ?)');
     const getPrice = db.prepare('SELECT price FROM menu_items WHERE id = ?');
-    
+
     for (const item of orderData.items) {
       const menuItem = getPrice.get(item.id);
       if (menuItem) {
@@ -77,7 +77,7 @@ app.post('/api/orders', (req, res) => {
         insertItem.run(orderId, item.id, item.quantity);
       }
     }
-    
+
     db.prepare('UPDATE orders SET total_price = ? WHERE id = ?').run(total, orderId);
     return { orderId, total };
   });
@@ -91,6 +91,6 @@ app.post('/api/orders', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
 });

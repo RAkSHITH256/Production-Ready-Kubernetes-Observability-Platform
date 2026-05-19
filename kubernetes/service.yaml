@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: food-order-service
+
+spec:
+  selector:
+    app: food-order
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+
+  type: NodePort
