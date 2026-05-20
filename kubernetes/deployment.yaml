@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: food-order-container
-          image: raks25/food-order:v3
+          image: raks25/food-order:latest
           imagePullPolicy: Always
 
           ports:
