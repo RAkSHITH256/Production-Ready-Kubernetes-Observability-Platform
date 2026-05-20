@@ -1,4 +1,4 @@
-name: Docker CI Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -20,7 +20,11 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build -t raks25/food-order:latest .
+        run: |
+          docker build -t raks25/food-order:${{ github.sha }} .
+          docker tag raks25/food-order:${{ github.sha }} raks25/food-order:latest
 
-      - name: Push Docker Image
-        run: docker push raks25/food-order:latest
+      - name: Push Docker Images
+        run: |
+          docker push raks25/food-order:${{ github.sha }}
+          docker push raks25/food-order:latest
