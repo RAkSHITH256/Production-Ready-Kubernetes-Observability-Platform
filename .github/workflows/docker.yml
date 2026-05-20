@@ -23,4 +23,4 @@ jobs:
         run: docker build -t raks25/food-order:latest .
 
       - name: Push Docker Image
-        run: docker push raks25/food-order:latestgit add
+        run: docker push raks25/food-order:latest
