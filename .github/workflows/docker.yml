@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Docker Build and Deploy
 
 on:
   push:
@@ -7,9 +7,10 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
+
       - name: Checkout Code
         uses: actions/checkout@v4
 
@@ -27,13 +28,17 @@ jobs:
         run: |
           docker push raks25/food-order:latest
 
-      - name: Setup Kubeconfig
+      - name: Set up Kubeconfig
         run: |
           mkdir -p ~/.kube
           echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
 
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v4
+
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f kubernetes/deployment.yaml
-          kubectl apply -f kubernetes/service.yaml
-          kubectl rollout restart deployment food-order-deployment
+          kubectl set image deployment/food-order-deployment \
+          food-order-container=raks25/food-order:latest
+
+          kubectl rollout status deployment/food-order-deployment
