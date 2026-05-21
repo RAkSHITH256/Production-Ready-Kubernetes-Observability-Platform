@@ -1,143 +1,233 @@
-# Production-Ready Kubernetes Observability Platform 🚀
+# Production-Ready Kubernetes Observability & GitOps Platform 🚀
 
-A complete DevOps project demonstrating CI/CD automation, Kubernetes deployment, monitoring, and observability using modern cloud-native tools.
+A complete cloud-native DevOps project demonstrating CI/CD automation, Kubernetes orchestration, GitOps deployment strategy, monitoring, and observability using modern industry-standard tools.
 
 ---
 
 # 📌 Project Overview
 
-This project showcases a production-style DevOps workflow where application code is automatically built, containerized, deployed, and monitored using Kubernetes and observability tools.
+This project demonstrates a production-style DevOps workflow where application code is automatically built, containerized, deployed, synchronized, and monitored using Kubernetes and modern observability tools.
 
-The platform includes:
+The platform integrates:
 
-* Automated CI/CD pipeline
-* Docker containerization
-* Kubernetes orchestration
-* GitHub Actions automation
-* Self-hosted GitHub runner
-* Prometheus monitoring
-* Grafana dashboards
-* Real-time infrastructure observability
+- CI/CD automation
+- Docker containerization
+- Kubernetes orchestration
+- GitOps deployment using ArgoCD
+- Monitoring using Prometheus
+- Visualization using Grafana
+- Real-time infrastructure observability
+- Self-hosted GitHub Actions runner
 
 ---
 
-# 🏗 Architecture
+# 🏗️ Architecture
 
-Developer Push
-↓
-GitHub Actions CI/CD
-↓
-Docker Build & Push
-↓
-Docker Hub Registry
-↓
-Kubernetes Deployment
-↓
-Prometheus Monitoring
-↓
-Grafana Dashboards
+Developer Push  
+↓  
+GitHub Actions CI Pipeline  
+↓  
+Docker Image Build  
+↓  
+Docker Hub Push  
+↓  
+ArgoCD GitOps Sync  
+↓  
+Kubernetes Deployment  
+↓  
+Prometheus Monitoring  
+↓  
+Grafana Dashboards  
 
 ---
 
 # ⚙️ Tech Stack
 
-* Git
-* GitHub
-* GitHub Actions
-* Docker
-* Docker Hub
-* Kubernetes
-* Minikube
-* Helm
-* Prometheus
-* Grafana
-* Linux
+## DevOps & CI/CD
+- Git
+- GitHub
+- GitHub Actions
+- Self-hosted Runner
+
+## Containerization
+- Docker
+- Docker Hub
+
+## Orchestration
+- Kubernetes
+- Minikube
+
+## GitOps
+- ArgoCD
+
+## Monitoring & Observability
+- Prometheus
+- Grafana
+- kube-state-metrics
+- Node Exporter
+
+## Package Management
+- Helm
+
+## Operating System
+- Linux (Fedora)
 
 ---
 
 # 🚀 Features
 
-✅ Automated CI/CD Pipeline
-✅ Dockerized Application
-✅ Kubernetes Deployment Automation
-✅ Self-hosted GitHub Runner
-✅ Prometheus Metrics Collection
-✅ Grafana Monitoring Dashboards
-✅ Real-time Infrastructure Monitoring
-✅ Kubernetes Observability Platform
+✅ Automated CI Pipeline using GitHub Actions  
+✅ Self-hosted GitHub Runner  
+✅ Dockerized Application Deployment  
+✅ Kubernetes Orchestration  
+✅ GitOps Workflow using ArgoCD  
+✅ Automatic Kubernetes Synchronization  
+✅ Prometheus Metrics Collection  
+✅ Grafana Monitoring Dashboards  
+✅ Real-time Infrastructure Monitoring  
+✅ Kubernetes Observability Platform  
+✅ Drift Detection & Self-Healing  
+✅ Deployment Rollback Capability  
 
 ---
 
-# 🔄 CI/CD Workflow
+# 🔄 CI/CD + GitOps Workflow
+
+## Continuous Integration (CI)
 
 1. Developer pushes code to GitHub
 2. GitHub Actions pipeline triggers automatically
 3. Docker image is built
 4. Docker image is pushed to Docker Hub
-5. Kubernetes deployment gets updated automatically
-6. Prometheus collects metrics
-7. Grafana visualizes live dashboards
+
+## GitOps Continuous Deployment (CD)
+
+1. ArgoCD continuously watches GitHub repository
+2. Detects manifest changes automatically
+3. Synchronizes Kubernetes cluster state
+4. Deploys updated application automatically
+5. Maintains desired state consistency
+
+---
+
+# 🔥 Why ArgoCD (GitOps)?
+
+Traditional deployments use push-based deployments where CI pipelines directly access Kubernetes clusters.
+
+This project uses a modern GitOps approach where:
+
+- Git becomes the single source of truth
+- ArgoCD continuously reconciles cluster state
+- Drift detection automatically corrects manual changes
+- Kubernetes deployments become declarative and self-healing
 
 ---
 
 # 📊 Monitoring Stack
 
 ## Prometheus
-
 Used for:
-
-* Metrics collection
-* Kubernetes monitoring
-* Node monitoring
-* Pod monitoring
+- Metrics collection
+- Kubernetes monitoring
+- Pod monitoring
+- Node monitoring
+- Resource analysis
 
 ## Grafana
-
 Used for:
-
-* Dashboard visualization
-* Infrastructure monitoring
-* CPU/RAM analysis
-* Network traffic analysis
-
-
-# 📈 Metrics Monitored
-
-* CPU Usage
-* Memory Usage
-* Network Traffic
-* Disk Usage
-* Kubernetes Pod Health
-* Node Health
-* Deployment Status
+- Dashboard visualization
+- CPU/RAM analysis
+- Network traffic analysis
+- Infrastructure observability
+- Kubernetes monitoring dashboards
 
 ---
 
-# 🔥 Future Enhancements
+# 📈 Metrics Monitored
 
-* ArgoCD (GitOps)
-* Loki + Promtail Logging
-* Terraform
-* Trivy Security Scanning
-* Alertmanager Alerts
-* AWS EKS Deployment
-* Horizontal Pod Autoscaling
-* Kubernetes Security (RBAC)
+- CPU Usage
+- Memory Usage
+- Network Traffic
+- Disk Usage
+- Kubernetes Pod Health
+- Node Health
+- Deployment Status
+- Replica Health
+- Cluster Resource Usage
+
+---
+
+# 📷 Project Screenshots
+
+## GitHub Actions CI Pipeline
+
+![GitHub Actions](screenshots/github-actions.png)
+
+---
+
+## Prometheus Monitoring Dashboard
+
+![Prometheus](screenshots/prometheus.png)
+
+---
+
+## Grafana Infrastructure Dashboard
+
+![Grafana](screenshots/grafana1.png)
+
+---
+
+## ArgoCD GitOps Dashboard
+
+![ArgoCD](screenshots/argocd.png)
+
+---
+
+# 🧠 Key DevOps Concepts Implemented
+
+- CI/CD Automation
+- GitOps Workflow
+- Infrastructure Observability
+- Kubernetes Orchestration
+- Continuous Reconciliation
+- Drift Detection
+- Self-Healing Infrastructure
+- Rolling Deployments
+- Containerization
+- Monitoring & Alerting Foundations
+
+---
+
+# 🔮 Future Enhancements
+
+- Loki + Promtail Logging
+- Terraform Infrastructure as Code
+- Trivy Security Scanning
+- Alertmanager Integration
+- AWS EKS Deployment
+- Horizontal Pod Autoscaling (HPA)
+- RBAC & Kubernetes Security
+- OpenTelemetry
+- Distributed Tracing
+- DevSecOps Pipeline
 
 ---
 
 # 🎯 Learning Outcomes
 
-Through this project, I gained hands-on experience with:
+Through this project, I gained practical hands-on experience with:
 
-* CI/CD Automation
-* Docker Containerization
-* Kubernetes Orchestration
-* Observability & Monitoring
-* GitHub Actions
-* Prometheus & Grafana
-* Self-hosted Runners
-* Infrastructure Monitoring
+- Kubernetes Administration
+- GitOps using ArgoCD
+- CI/CD Automation
+- Docker Containerization
+- Observability & Monitoring
+- Infrastructure Automation
+- Prometheus & Grafana
+- GitHub Actions
+- Self-hosted Runners
+- Kubernetes Resource Management
+- Production-style DevOps Workflows
 
 ---
 
@@ -145,4 +235,4 @@ Through this project, I gained hands-on experience with:
 
 Rakshith C
 
-DevOps | Kubernetes | Observability | Cloud-Native Technologies
+DevOps | Kubernetes | GitOps | Observability | Cloud-Native Technologies
