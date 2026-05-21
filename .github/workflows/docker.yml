@@ -1,4 +1,4 @@
-name: Docker Build and Deploy
+name: Docker Build and Push
 
 on:
   push:
@@ -27,18 +27,3 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push raks25/food-order:latest
-
-      - name: Set up Kubeconfig
-        run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-
-      - name: Install kubectl
-        uses: azure/setup-kubectl@v4
-
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl set image deployment/food-order-deployment \
-          food-order-container=raks25/food-order:latest
-
-          kubectl rollout status deployment/food-order-deployment
